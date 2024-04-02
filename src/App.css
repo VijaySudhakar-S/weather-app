@@ -1,0 +1,133 @@
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+}
+
+.container {
+  background-color: #ffffff;
+  width: 350px;
+  height: 550px;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #000000;
+  padding: 10px;
+  width: 300px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  margin: auto;
+}
+
+.input-container input {
+  border: none;
+  width: 270px;
+  outline: none;
+  overflow: hidden;
+  background-color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.input-container img {
+  width: 20px;
+  cursor: pointer;
+}
+
+.weather-image {
+  width: 120px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.weather-image img {
+  width: 100%;
+}
+
+.temp {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.location {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #ffaa01;
+  font-size: 1.8rem;
+  margin-top: 5px;
+}
+
+.country {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #585858;
+}
+
+.latlon {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.humi-wind {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 40px 20px;
+}
+.humi {
+  width: 50px;
+}
+
+.wind {
+  width: 60px;
+}
+
+.humi img,
+.wind img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.humi-wind div span {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.Vijay {
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.Vijay a {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  margin-left: 10px;
+  border-bottom: 1px solid;
+  padding-bottom: 6px;
+  transition: 0.3s;
+}
+
+.Vijay a:hover {
+  color: rgb(209, 209, 209);
+}
