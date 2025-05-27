@@ -4,12 +4,33 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  margin: 0;
+  background: linear-gradient(
+    120deg,
+    rgb(164, 87, 199),
+    rgb(116, 169, 255),
+    rgb(207, 50, 255)
+  );
+  background-size: 250% 250%;
+  animation: softGradientMove 20s ease-in-out infinite;
+  color: #000000;
+}
+
+@keyframes softGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
   background-color: #ffffff;
-  width: 350px;
+  min-width: 350px;
   height: 550px;
   border-radius: 10px;
   padding: 25px;
@@ -35,7 +56,7 @@ body {
   overflow: hidden;
   background-color: #ffffff;
   font-size: 16px;
-  text-align: center;
+  color: #000000;
 }
 
 .input-container img {
@@ -63,8 +84,8 @@ body {
 .location {
   text-align: center;
   text-transform: uppercase;
-  font-weight: 500;
-  color: #ffaa01;
+  font-weight: 700;
+  color: #e89f0c;
   font-size: 1.8rem;
   margin-top: 5px;
 }
@@ -84,9 +105,13 @@ body {
   text-align: center;
   margin-top: 20px;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
-
+.latlon span:last-child {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #585858;
+}
 .humi-wind {
   display: flex;
   justify-content: space-between;
@@ -109,8 +134,14 @@ body {
 }
 
 .humi-wind div span {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
+}
+
+.humi-wind div span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #585858;
 }
 
 .Vijay {
@@ -130,4 +161,20 @@ body {
 
 .Vijay a:hover {
   color: rgb(209, 209, 209);
+}
+
+.loading,
+.cityNotFound {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  color: rgba(212, 0, 0, 0.788);
+}
+
+.cityNotFound img {
+  width: 250px;
 }

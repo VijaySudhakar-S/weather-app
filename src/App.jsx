@@ -2,6 +2,8 @@ import searchIcon from "./assets/711319.png";
 import rain from "./assets/rain.png";
 import humiditiy from "./assets/humi.png";
 import wind from "./assets/wind.jpg";
+import loading from "./assets/loading.gif";
+import notFound from "./assets/notfound.png";
 
 import "./App.css";
 import { useEffect, useState } from "react";
@@ -58,11 +60,11 @@ const WeatherDetails = ({
 };
 
 function App() {
-  const [city, setCity] = useState("Karur");
+  const [city, setCity] = useState("Coimbatore");
   const [icon, SetIcon] = useState(rain);
   const [temp, SetTemp] = useState(0);
-  const [location, Setlocation] = useState("Karur");
-  const [country, Setcountry] = useState("IN");
+  const [location, Setlocation] = useState("");
+  const [country, Setcountry] = useState("");
   const [lat, Setlat] = useState("0");
   const [log, Setlog] = useState("0");
   const [humidity, SetHumidity] = useState("0");
@@ -88,7 +90,6 @@ function App() {
       let res = await fetch(url);
       let data = await res.json();
       if (data.cod === "404") {
-        alert("City Not Found");
         SetCityNotFound(true);
         SetLoading(false);
         return;
@@ -102,8 +103,9 @@ function App() {
       Setlog(data.coord.lon);
       SetHumidity(data.main.humidity);
       SetSpeed(data.wind.speed);
+      SetCityNotFound(false);
     } catch (error) {
-      alert("Error", error.message);
+      SetCityNotFound(true);
     } finally {
       SetLoading(false);
     }
@@ -126,16 +128,28 @@ function App() {
           />
           <img src={searchIcon} alt="" onClick={() => Search()} />
         </div>
-        <WeatherDetails
-          icon={icon}
-          temp={temp}
-          location={location}
-          country={country}
-          lat={lat}
-          log={log}
-          humidity={humidity}
-          speed={speed}
-        />
+        {Loading && (
+          <div className="loading">
+            <img src={loading} alt="" />
+          </div>
+        )}
+        {cityNotFound && (
+          <div className="cityNotFound">
+            <img src={notFound} alt="" />
+          </div>
+        )}
+        {!Loading && !cityNotFound && (
+          <WeatherDetails
+            icon={icon}
+            temp={temp}
+            location={location}
+            country={country}
+            lat={lat}
+            log={log}
+            humidity={humidity}
+            speed={speed}
+          />
+        )}
       </div>
       <div className="Vijay">
         Designed By
